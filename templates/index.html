@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careless Whisper - Audio Transcription</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Careless Whisper <span class="version">Web Ver1.0</span></h1>
+        
+        <div class="output-container">
+            <textarea id="output-text" readonly placeholder="Transcription will appear here..."></textarea>
+        </div>
+        
+        <div class="controls">
+            <div class="control-row">
+                <label for="model-select">Model:</label>
+                <select id="model-select">
+                    <option value="tiny">tiny</option>
+                    <option value="medium">medium</option>
+                    <option value="large-v3">large-v3</option>
+                </select>
+            </div>
+            
+            <div class="control-row">
+                <label for="device-select">Device:</label>
+                <select id="device-select">
+                    <option value="cpu">CPU</option>
+                    <option value="gpu">GPU</option>
+                </select>
+            </div>
+            
+            <div class="control-row file-selection">
+                <span id="selected-file-label">No file selected</span>
+                <label for="file-input" class="button">Select File</label>
+                <input type="file" id="file-input" accept="audio/*,video/*" style="display: none;">
+            </div>
+            
+            <button id="transform-button">Transform!</button>
+            
+            <div id="download-container" style="display: none; margin-top: 15px;">
+                <a id="download-link" class="button" href="#" target="_blank">Download SRT</a>
+            </div>
+        </div>
+        
+        <div class="credit">
+            <p>Programmed with ❤️ by Reiii & Supported by OpenAI Whisper Model</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
